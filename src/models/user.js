@@ -22,5 +22,9 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  observations: {
+    type: Array,
+    require: false,
+  },
 }, { timestamps: true });
 module.exports = mongoose.model('User', userSchema);
