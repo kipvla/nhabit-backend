@@ -30,7 +30,7 @@ exports.findUserByUid = async (req, res) => {
     const foundUser = await User.find({ uid });
     console.log(uid, foundUser);
     res.status(200);
-    res.send(uid);
+    res.send(foundUser);
   } catch (error) {
     console.log(error);
   }
