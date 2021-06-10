@@ -35,3 +35,17 @@ exports.findUserByUid = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.findUserByUidAndAddDisplayName = async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const { displayName } = req.body;
+    const updatedUser = await User.findOneAndUpdate({ uid }, { displayName }, (err, user) => {
+      if (err) console.log(err);
+      return user;
+    });
+    res.send(updatedUser);
+  } catch (error) {
+    console.log(error);
+  }
+};
