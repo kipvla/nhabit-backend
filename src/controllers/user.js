@@ -44,6 +44,7 @@ exports.findUserByUidAndAddDisplayName = async (req, res) => {
       if (err) console.log(err);
       return user;
     });
+    res.status(204);
     res.send(updatedUser);
   } catch (error) {
     console.log(error);
