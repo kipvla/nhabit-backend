@@ -27,7 +27,7 @@ exports.createUser = async (req, res) => {
 exports.findUserByUid = async (req, res) => {
   try {
     const { uid } = req.params;
-    const foundUser = await User.find({ uid });
+    const foundUser = await User.findOne({ uid });
     console.log(uid, foundUser);
     res.status(200);
     res.send(foundUser);
