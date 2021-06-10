@@ -2,11 +2,7 @@ const mongoose = require('./index');
 
 // Create User schema
 const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-  },
-  password: {
+  id: {
     type: String,
     required: true,
   },
