@@ -23,3 +23,15 @@ exports.createUser = async (req, res) => {
     res.send(error);
   }
 };
+
+exports.findUserByUid = async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const foundUser = await User.find({ uid });
+    console.log(uid, foundUser);
+    res.status(200);
+    res.send(uid);
+  } catch (error) {
+    console.log(error);
+  }
+};
