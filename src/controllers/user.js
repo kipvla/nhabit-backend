@@ -39,13 +39,15 @@ exports.findUserByUid = async (req, res) => {
 exports.findUserByUidAndAddDisplayName = async (req, res) => {
   try {
     const { uid } = req.params;
+    console.log('UID is ', uid);
     const { displayName } = req.body;
     const updatedUser = await User.findOneAndUpdate({ uid }, { displayName }, (err, user) => {
       if (err) console.log(err);
       return user;
     });
-    res.status(204);
+    console.log(updatedUser);
     res.send(updatedUser);
+    res.status(204);
   } catch (error) {
     console.log(error);
   }
