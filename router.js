@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  getUsers, createUser, findUserByUid, findUserByUidAndAddDisplayName, getGames, addGame
+  getUsers, createUser, findUserByUid, findUserByUidAndAddDisplayName,
 } = require('./src/controllers/user');
+const { getGames, addGame } = require('./src/controllers/game');
 
 router.get('/', getUsers);
 router.post('/register', createUser);
