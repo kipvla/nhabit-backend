@@ -21,3 +21,20 @@ exports.addGame = async (req, res) => {
     res.send(error);
   }
 };
+
+exports.editGame = async (req, res) => {
+  try {
+    console.log('hello from editGame');
+    const { id } = req.params;
+    const { slides } = req.body;
+    const editedGame = await Game.findOneAndUpdate({ _id: id }, { slides }, (err, game) => {
+      if (err) console.log(err);
+      return game;
+    });
+    console.log(editedGame);
+    res.send(editedGame);
+    res.status(204);
+  } catch (error) {
+    console.log(error);
+  }
+};
