@@ -18,6 +18,8 @@ exports.addGame = async (req, res) => {
     res.status(201);
     res.send(newGame);
   } catch (error) {
+    console.error(error);
+    res.status(500);
     res.send(error);
   }
 };

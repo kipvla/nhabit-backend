@@ -14,6 +14,7 @@ exports.getUsers = async (req, res) => {
 
 exports.createUser = async (req, res) => {
   try {
+    debugger;
     const newUser = await User.create(req.body);
     console.log(newUser);
     res.status(201);
