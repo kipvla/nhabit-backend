@@ -24,6 +24,18 @@ exports.addGame = async (req, res) => {
   }
 };
 
+exports.findGameById = async (req, res) => {
+  try {
+    const { id: _id } = req.params;
+    const foundGame = await Game.findOne({ _id });
+    console.log(_id, { foundGame });
+    res.status(200);
+    res.send(foundGame);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 exports.editGame = async (req, res) => {
   try {
     console.log('hello from editGame');
